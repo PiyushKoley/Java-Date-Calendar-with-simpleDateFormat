@@ -1,4 +1,5 @@
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -23,6 +24,20 @@ public class Main {
         System.out.println("Date After 2 months : "+ addOrSubtractMonthsFromToday(2));
         System.out.println("Date After 2 years : "+ addOrSubtractYearsFromToday(2));
 
+    }
+
+
+    //this function will change format of date from currentFormat to requiredFormat .....
+    public static String changeFormatOfDate(String requiredFormat, String currentFormat, String currentDate) throws ParseException {
+        SimpleDateFormat currentDateFormat = new SimpleDateFormat(currentFormat);
+
+        Date date = currentDateFormat.parse(currentDate); // this will change the string(currentDate) to Date ...
+
+        SimpleDateFormat requiredDateFormat = new SimpleDateFormat(requiredFormat);
+
+        String requiredFormatDate = requiredDateFormat.format(date);
+
+        return requiredFormatDate;
     }
 
     public static String addOrSubtractDaysFromToday(int numberOfDays) {
